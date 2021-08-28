@@ -9,7 +9,7 @@ const Chatroom = ({ selected, channel, chatList }: { selected: { type: 'chat'; i
       </div>
       <div className='list'>
         {chatList.map((chat) => (
-          <p>{chat.text}</p>
+          <p key={chat.logId.toString()}>{chat.text}</p>
         ))}
       </div>
     </div>

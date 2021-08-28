@@ -126,6 +126,43 @@
     display: flex;
     width: 100%;
 
+    .loading {
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 1rem;
+        border-radius: .4rem;
+
+        .title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: .3rem;
+        }
+
+        .description {
+          font-size: .9rem;
+          font-weight: 500;
+        }
+      }
+
+      &.show {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(3px);
+        z-index: 1;
+      }
+    }
+
     .sidebar {
       height: 100vh;
       padding: 0;
