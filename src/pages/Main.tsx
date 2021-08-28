@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import Chatroom from '../components/Chatroom';
 import Confetti from '../components/Confetti';
@@ -11,10 +11,14 @@ const Main = () => {
   const channelList = useChannelList();
   const [chatList, loading] = useChatList();
   const [selected, setSelected] = useState<{ type: 'chat'; id: Long }>({ type: 'chat', id: Long.fromNumber(0) });
+  const [loadTimes, setLoadTimes] = useState(0);
   // const [showContextMenu, setShowContextMenu] = useState(false);
   // const [contextMenuData, setContextMenuData] = useState<{ id: Long; x: number; y: number }>({ id: Long.fromNumber(0), x: 0, y: 0 });
 
-  console.log(chatList);
+  useEffect(() => {
+    if (loadTimes === 0) setLoadTimes(1);
+    else if (loadTimes === 1) toast.success('메시지를 불러왔습니다!');
+  }, [loading]);
 
   return (
     <div className='main' /*onClick={() => setShowContextMenu(false)}*/>
@@ -34,11 +38,7 @@ const Main = () => {
           나가기
         </div>
       </div> */}
-      {!loading &&
-        (() => {
-          toast.success('메시지를 불러왔습니다!');
-          return <Confetti />;
-        })()}
+      {!loading && <Confetti />}
       <div className={'loading' + (loading ? ' show' : '')}>
         <div className='content'>
           <span className='title'>메시지를 불러오는 중입니다...</span>
