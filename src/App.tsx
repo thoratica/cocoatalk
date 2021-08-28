@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useLogon from './hooks/useLogon';
 import Login from './pages/Login';
 import Main from './pages/Main';
-import toast, { Toaster } from 'react-hot-toast';
-import Confetti from './components/Confetti';
+import { Toaster } from 'react-hot-toast';
 import './App.scss';
-import { api, client } from './store';
 
 const App = () => {
   const logon = useLogon();
@@ -13,14 +11,7 @@ const App = () => {
   return (
     <div className='app'>
       <Toaster position='bottom-center' />
-      {logon ? (
-        <>
-          <Confetti />
-          <Main />
-        </>
-      ) : (
-        <Login />
-      )}
+      {logon ? <Main /> : <Login />}
     </div>
   );
 };

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import Chatroom from '../components/Chatroom';
+import Confetti from '../components/Confetti';
 import Sidebar from '../components/Sidebar';
 import useChannelList from '../hooks/useChannelList';
 import useChatList from '../hooks/useChatList';
@@ -14,6 +16,11 @@ const Main = () => {
 
   return (
     <div className='main'>
+      {!loading &&
+        (() => {
+          toast.success('메시지를 불러왔습니다!');
+          return <Confetti />;
+        })()}
       <div className={'loading' + (loading ? ' show' : '')}>
         <div className='content'>
           <span className='title'>메시지를 불러오는 중입니다...</span>
