@@ -11,11 +11,29 @@ const Main = () => {
   const channelList = useChannelList();
   const [chatList, loading] = useChatList();
   const [selected, setSelected] = useState<{ type: 'chat'; id: Long }>({ type: 'chat', id: Long.fromNumber(0) });
+  // const [showContextMenu, setShowContextMenu] = useState(false);
+  // const [contextMenuData, setContextMenuData] = useState<{ id: Long; x: number; y: number }>({ id: Long.fromNumber(0), x: 0, y: 0 });
 
   console.log(chatList);
 
   return (
-    <div className='main'>
+    <div className='main' /*onClick={() => setShowContextMenu(false)}*/>
+      {/* <div className={'contextMenu' + (showContextMenu ? ' show' : '')} style={{ top: contextMenuData.y, left: contextMenuData.x }}>
+        <div
+          className='item leave'
+          onClick={() => {
+            setShowContextMenu(false);
+            const channel = channelList.find((c) => c.channelId.toString() === contextMenuData.id.toString());
+            if (channel === undefined) return toast.error('채널을 찾을 수 없습니다.');
+
+            alert(channel.info.type);
+            if (channel.info.type === 'OM' || channel.info.type === 'OD') client.channelList.open.leaveChannel({ channelId: contextMenuData.id });
+            else client.channelList.normal.leaveChannel({ channelId: contextMenuData.id });
+          }}
+        >
+          나가기
+        </div>
+      </div> */}
       {!loading &&
         (() => {
           toast.success('메시지를 불러왔습니다!');
