@@ -1,0 +1,244 @@
+.app {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  user-select: none;
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: auto;
+
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    label.text {
+      display: flex;
+      flex-direction: column;
+      margin: .3rem 0;
+
+      &.passcode {
+        display: none !important;
+
+        &.show {
+          display: flex !important;
+        }
+      }
+
+      span {
+        font-weight: 500;
+        margin: .1rem 0;
+      }
+
+      input {
+        border: 1px solid #e2e2e2;
+        border-radius: .4rem;
+        padding: .7rem 1rem;
+        font-size: 1rem;
+        margin: 1.5px;
+        transition: border-color .3s;
+
+        &:focus {
+          outline: none;
+          margin: 0;
+          border-width: 2.5px;
+          border-color: #fee500;
+        }
+      }
+    }
+
+    label.checkbox {
+      display: flex;
+      align-items: center;
+      margin: .5rem 0 .2rem 0;
+
+      input[type=checkbox] {
+        display: none;
+      }
+
+      .checkbox {
+        border: 1px solid #e2e2e2;
+        border-radius: 1rem;
+        background-color: white;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 1rem;
+        height: 1rem;
+        margin-right: .3rem;
+
+        &.checked {
+          border-color: #fee500;
+          background-color: #fee500;
+          // background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+      }
+
+      span {
+        margin-top: 1.5px;
+      }
+
+      details {
+        cursor: pointer;
+        margin-top: 2px;
+        margin-left: .2rem;
+
+        summary {
+          list-style: none;
+        }
+
+        div {
+          position: absolute;
+          background-color: #0000008a;
+          color: white;
+          padding: .7rem;
+          backdrop-filter: blur(3px);
+          border-radius: .4rem;
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
+    }
+
+    button[type=submit] {
+      border: 1px solid #fee500;
+      background-color: #fee500;
+      border-radius: .4rem;
+      padding: .7rem 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      width: 100%;
+      margin-top: .3rem;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .main {
+    display: flex;
+    width: 100%;
+
+    .sidebar {
+      height: 100vh;
+      padding: 0;
+
+      .contextMenu {
+        display: none;
+        position: fixed;
+        background-color: #ffffffc4;
+        backdrop-filter: blur(2px);
+        border: 1px solid #e2e2e2;
+        border-radius: .4rem;
+
+        &.show {
+          display: block;
+        }
+
+        .item {
+          padding: .5rem .7rem;
+          border-radius: .4rem;
+
+          &:hover {
+            background-color: #ffffffc4;
+          }
+        }
+      }
+
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        height: 3.5rem;
+        padding: 0 1rem;
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .list {
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        display: flex;
+
+        .item {
+          transition: background-color .3s;
+          padding: .7rem 1rem;
+          display: flex;
+          align-items: center;
+
+          .profile {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 1rem;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            flex-shrink: 0;
+          }
+
+          .text {
+            margin-left: .5rem;
+            width: 11rem;
+
+            .name {
+              font-weight: 500;
+              font-size: 1.1rem;
+              overflow-wrap: break-word;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .status {
+              font-size: .9rem;
+              overflow-wrap: break-word;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+
+          &:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+
+    .chatroom {
+      height: 100vh;
+      width: 100%;
+
+      .header {
+        font-size: 1.2rem;
+        font-weight: 600;
+        background-color: white;
+        height: 3.5rem;
+        padding: 0 .5rem;
+        display: flex;
+        align-items: center;
+
+        .name {
+          width: calc(100vw - 17.5rem);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .list {
+        background-color: #abc1d1;
+        border-radius: .5rem 0 0 0;
+        width: 100%;
+        height: calc(100vh - 3.5rem);
+      }
+    }
+  }
+}
