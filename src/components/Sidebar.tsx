@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Scrollbars from 'react-custom-scrollbars-2';
 import { Long, TalkChannel } from '../node-kakao';
 
